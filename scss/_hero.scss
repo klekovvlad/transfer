@@ -1,0 +1,303 @@
+.main {
+    background: url(../img/main-bg.png) no-repeat center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: -1;
+    }
+    &__wrapper {
+        min-height: 768px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+    }
+    &__text {
+        margin-top: 100px;
+        max-width: 60%;
+        * {
+            color: #fff;
+        }
+        span {
+            @include font-ligth;
+            display: block;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 60px;
+            @include font-bold;
+        }
+        h2 {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    }
+    &__form {
+        min-width: 100%;
+        margin-top: 100px;
+        background: #fff;
+        border-radius: 100px;
+        form {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            align-items: center;
+            grid-gap: 20px;
+            padding: 50px;
+        }
+        &-item {
+            display: flex;
+            align-items: center;
+            .icon {
+                width: 60px;
+                height: 60px;
+                background: $color-gray;
+                border-radius: 50%;
+            }
+            .text {
+                padding-left: 10px;
+                span {
+                    display: block;
+                    color: #b8b8b8;
+                    @include font-ligth;
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+                input {
+                    border: none;
+                    outline: none;
+                    font-size: 18px;
+                    color: #000;
+                    max-width: 180px;
+                }
+                ::-webkit-input-placeholder {
+                    color: #000;
+                }
+            }
+            button {
+                padding: 20px 20px;
+                background: #000;
+                color: #fff;
+                border-radius: 100px;
+                cursor: pointer;
+                font-size: 18px;
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .main {
+        &__form {
+            form {
+                display: grid;
+                grid-template-columns: 1fr 1fr 2fr 2fr 1fr;
+                align-items: center;
+                grid-gap: 20px;
+            }
+            &-item {
+                .text {
+                    input {
+                        font-size: 16px;
+                        max-width: 160px;
+                    }
+                }
+                &:nth-child(1),
+                &:nth-child(2) {
+                    .text {
+                        input {
+                            max-width: 110px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .main {
+        &__text {
+            margin-top: 100px;
+            max-width: 70%;
+        }
+        &__form {
+            form {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1.5fr 1.5fr 1fr;
+                align-items: center;
+                grid-gap: 10px;
+            }
+            &-item {
+                .text {
+                    input {
+                        font-size: 16px;
+                        max-width: 160px;
+                    }
+                }
+                button {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1150px) {
+    .main {
+        &__form {
+            form {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                align-items: center;
+                grid-gap: 20px;
+            }
+            &-item {
+                .text {
+                    input {
+                        font-size: 18px;
+                        max-width: 160px;
+                    }
+                }
+                button {
+                    font-size: 18px;
+                }
+                &:nth-child(1),
+                &:nth-child(2) {
+                    .text {
+                        input {
+                            max-width: 160px;
+                        }
+                    }
+                }
+                &:last-child {
+                    grid-row-start: 1;
+                    grid-row-end: 3;
+                    grid-column-start: 3;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 990px) {
+    .main {
+        &__text {
+            margin-top: 100px;
+            max-width: 70%;
+            span {
+                font-size: 14px;
+            }
+            h1 {
+                font-size: 40px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+        }
+        &__form {
+            border-radius: 20px;
+            form {
+                grid-gap: 20px 30px;
+                grid-gap: 1fr 1fr 0.5fr;
+                padding: 50px 30px;
+            }
+            &-item {
+                .text {
+                    input {
+                        font-size: 16px;
+                        max-width: 140px;
+                    }
+                }
+                button {
+                    font-size: 14px;
+                }
+                &:nth-child(1),
+                &:nth-child(2) {
+                    .text {
+                        input {
+                            max-width: 120px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .main {
+        background: url(../img/main-bg.png) no-repeat 52% 10%;
+        background-size: cover;
+        &__wrapper {
+            align-items: start;
+            justify-content: start;
+            padding-top: 100px;
+        }
+        &__text {
+            margin-top: 0px;
+            max-width: 85%;
+            span {
+                font-size: 14px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 16px;
+            }
+        }
+        &__form {
+            border-radius: 20px;
+            position: absolute;
+            bottom: -80px;
+            form {
+                grid-gap: 20px 30px;
+                grid-template-columns: 1fr;
+                padding: 50px 30px;
+            }
+            &-item {
+                .icon {
+                    width: 50px;
+                    height: 50px;
+                }
+                .text {
+                    input {
+                        font-size: 16px;
+                        max-width: 100%;
+                    }
+                }
+                button {
+                    font-size: 18px;
+                    min-width: 100%;
+                }
+                &:nth-child(1),
+                &:nth-child(2) {
+                    .text {
+                        input {
+                            max-width: 100%;
+                        }
+                    }
+                }
+                &:last-child {
+                    grid-column-start: 1;
+                    grid-row-start: 5;
+                    grid-row-end: 5;
+                }
+            }
+        }
+        &-fixed {
+            margin-top: 80px;
+        }
+    }
+}

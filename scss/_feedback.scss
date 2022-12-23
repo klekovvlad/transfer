@@ -1,0 +1,214 @@
+.feedback {
+    background: #000;
+    padding: 100px 0px;
+    * {
+        color: #fff;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 400px;
+        &-content {
+            flex: 40%;
+        }
+        &-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        &-icon {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border-radius: 5px;
+        }
+        &-client {
+            padding-left: 20px;
+            h5 {
+                font-size: 20px;
+                @include font-bold;
+                margin-bottom: 10px;
+            }
+            span {
+                color: $color-gray;
+                font-size: 14px;
+            }
+        }
+        &-text {
+            line-height: 150%;
+        }
+        &-photo {
+            border-radius: 5px;
+            max-height: 400px;
+            flex: 20%;
+            overflow: hidden;
+            img {
+                border-radius: 5px;
+                display: block;
+            }
+        }
+    }
+    .swiper-next {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        @include centerY;
+        right: 22%;
+        z-index: 100;
+        cursor: pointer;
+        outline: 5px solid rgba(0,0,0,0.5);
+    }
+    .swiper-slide {
+        opacity: 0 !important;
+        transition: all 1s ease-in-out;
+    }
+    .swiper-slide-visible {
+        opacity: 1 !important;
+    }
+    .pagination {
+        position: relative;
+        padding: 0px 30px;
+        display: inline-block;
+    }
+    .swiper-pagination-bullets {
+        display: flex;
+        align-items: center;
+    }
+    .swiper-pagination-bullet {
+        height: 2px;
+        width: 30px;
+        background: rgba(255,255,255,0.2);
+        margin: 0 !important;
+        opacity: 1;
+        &:first-child {
+            position: relative;
+            &::before {
+                content: '01';
+                font-size: 14px;
+                position: absolute;
+                left: -30px;
+                @include centerY;
+                color: #fff;
+            }
+        }
+        &:last-child {
+            position: relative;
+            &::after {
+                content: attr(data-last);
+                font-size: 14px;
+                position: absolute;
+                right: -30px;
+                @include centerY;
+                color: #fff;
+                z-index: 5;
+                opacity: 1 !important;
+            }
+        }
+        &-active {
+            background: #fff;
+        }
+    }
+}
+
+@media (max-width: 1150px) {
+    .feedback {
+        &__item {
+            gap: 100px;
+            &-content {
+                flex: 60%;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .feedback {
+        padding: 60px 0px;
+        .swiper-wrapper {
+            padding-bottom: 40px;
+        }
+        &__item {
+            gap: 0px;
+            &-content {
+                flex: 100%;
+                padding-right: 50px;
+            }
+            &-top {
+                margin-bottom: 30px;
+            }
+            &-icon {
+                width: 50px;
+                height: 50px;
+            }
+            &-client {
+                h5 {
+                    font-size: 18px;
+                }
+            }
+            &-text {
+                font-size: 14px;
+            }
+            &-photo {
+                display: none;
+            }
+        }
+        .swiper-next {
+            width: 50px;
+            height: 50px;
+            right: 0%;
+        }
+        .swiper-slide {
+            opacity: 0 !important;
+            transition: all 1s ease-in-out;
+        }
+        .swiper-slide-visible {
+            opacity: 1 !important;
+        }
+        .pagination {
+            position: relative;
+            padding: 0px 30px;
+            display: inline-block;
+        }
+        .swiper-pagination-bullets {
+            display: flex;
+            align-items: center;
+        }
+        .swiper-pagination-bullet {
+            height: 2px;
+            width: 30px;
+            background: rgba(255,255,255,0.2);
+            margin: 0 !important;
+            opacity: 1;
+            &:first-child {
+                position: relative;
+                &::before {
+                    content: '01';
+                    font-size: 14px;
+                    position: absolute;
+                    left: -30px;
+                    @include centerY;
+                    color: #fff;
+                }
+            }
+            &:last-child {
+                position: relative;
+                &::after {
+                    content: attr(data-last);
+                    font-size: 14px;
+                    position: absolute;
+                    right: -30px;
+                    @include centerY;
+                    color: #fff;
+                    z-index: 5;
+                    opacity: 1 !important;
+                }
+            }
+            &-active {
+                background: #fff;
+            }
+        }
+    }
+}

@@ -1,0 +1,98 @@
+.popular {
+    padding: 100px 0px;
+    background: #f2f2f2 url(../img/catalog-bg.png) no-repeat left bottom;
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 50px;
+    }
+    &__item {
+        background: #fff;
+        border: 1px solid $color-gray;
+        border-radius: 5px;
+        overflow: hidden;
+        img.photo {
+            min-width: 100%;
+        }
+        &-text {
+            padding: 30px 30px 0px 30px;
+            h4 {
+                @include font-bold;
+                font-size: 28px;
+                margin-bottom: 20px;
+                span.old {
+                    font-size: 14px;
+                    color: #b8b8b8;
+                    display: block;
+                }
+            }
+        }
+        &-tariff {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 15px;
+            .tariff {
+                display: flex;
+                align-items: center;
+                .icon {
+                    flex-grow: 0;
+                    flex-shrink: 0;
+                    width: 50px;
+                    height: 50px;
+                }
+                .text {
+                    padding-left: 10px;
+                    .small {
+                        font-size: 14px;
+                    }
+                    .price {
+                        @include font-bold;
+                        font-size: 20px;
+                        display: block;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+        &-buttons {
+            padding: 30px;
+            button {
+                padding: 20px 20px;
+                border-radius: 100px;
+                cursor: pointer;
+                border: none;
+                font-size: 18px;
+            }
+            button.rent {
+                background: #000;
+                color: #fff;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1150px) {
+    .popular {
+        &__wrapper {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (max-width: 990px) {
+    .popular {
+        &__wrapper {
+            grid-gap: 30px 10px;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .popular {
+        padding: 150px 0px 60px 0px;
+        &__wrapper {
+            grid-template-columns: 1fr;
+        }
+    }
+}

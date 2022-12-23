@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Inter-Bold';
+    src: url(../fonts/Inter-Bold.ttf);
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url(../fonts/Inter-Regular.ttf);
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Inter-Light';
+    src: url(../fonts/Inter-Light.ttf);
+    font-weight: normal;
+}
+@mixin font-regular {
+    font-family: 'Inter-Regular', sans-serif;
+    font-weight: normal;
+    line-height: 110%;
+}
+@mixin font-bold {
+    font-family: 'Inter-Bold', sans-serif;
+    font-weight: normal;
+    line-height: 110%;
+}
+@mixin font-ligth {
+    font-family: 'Inter-Light', sans-serif;
+    font-weight: normal;
+    line-height: 110%;
+}

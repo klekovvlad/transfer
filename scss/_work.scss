@@ -1,0 +1,111 @@
+.work {
+    padding: 100px 0px;
+    background: #000 url(../img/work-bg.png) no-repeat right bottom;
+    h3 {
+        color: #fff;
+    }
+    &__wrapper {
+        max-width: 50%;
+        position: relative;
+    }
+    &__item {
+        * {
+            color: #8a8a8a;
+        }
+        padding-left: 50px;
+        margin-bottom: 70px;
+        position: relative;
+        h5 {
+            @include font-bold;
+            font-size: 24px;
+            margin-bottom: 30px;
+            position: relative;
+            animation: whiteColor .4s ease-in-out forwards;
+            &:before {
+                content: '';
+                width: 20px;
+                height: 20px;
+                border: 2px solid #c4c4c4;
+                border-radius: 50%;
+                position: absolute;
+                left: -50px;
+                @include centerY;
+                animation: whiteBorder .4s ease-in-out forwards;
+            }
+        }
+        .text {
+            font-size: 14px;
+            animation: whiteColor .4s ease-in-out forwards;
+        }
+        .line {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: #c4c4c4;
+            left: 10px;
+            top: 40px;
+            transform: translateX(1px);
+            overflow: hidden;
+            &:before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                top: -100%;
+                left: 0;
+                background: #fff;
+                position: absolute;
+                animation: whiteLine 1s ease-in-out forwards;
+            }
+        }
+    }
+    &__item:nth-child(2) {
+        h5 {
+            animation-delay: 1s;
+        }
+        .text {
+            animation-delay: 1s;
+        }
+    }
+    &__item:nth-child(3) {
+        margin-bottom: 0;
+        h5 {
+            animation-delay: 2s;
+        }
+        .text {
+            animation-delay: 2s;
+        }
+    }
+}
+
+@keyframes whiteColor {
+    100% {
+        color: #fff;
+    }
+}
+@keyframes whiteBorder {
+    100% {
+        border: 2px solid #fff;
+    }
+}
+@keyframes whiteLine {
+    100% {
+        top: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .work {
+        padding: 60px 0px;
+        &__wrapper {
+            max-width: 100%;
+        }
+        &__item {
+            h5 {
+                font-size: 20px;
+            }
+            .line {
+                top: 60px;
+            }
+        }
+    }
+}
