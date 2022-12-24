@@ -6,6 +6,27 @@
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 50px;
     }
+    h3 {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        a {
+            font-size: 16px;
+            padding-right: 24px;
+            position: relative;
+            &:before {
+                content: '';
+                position: absolute;
+                right: 0;
+                @include centerY;
+                width: 16px;
+                height: 16px;
+                background: url(../img/icons/arrow.svg) no-repeat center;
+                background-size: cover;
+                transform: translateY(-50%) rotate(-45deg);
+            }
+        }
+    }
     &__item {
         background: #fff;
         border: 1px solid $color-gray;
@@ -93,6 +114,20 @@
         padding: 150px 0px 60px 0px;
         &__wrapper {
             grid-template-columns: 1fr;
+        }
+        h3 {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            a {
+                font-size: 14px;
+                padding-right: 22px;
+                margin-top: 10px;
+                &:before {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
         }
     }
 }

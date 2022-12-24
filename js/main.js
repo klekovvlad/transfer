@@ -162,9 +162,8 @@ window.addEventListener('scroll', () => {
         }
     });
     const numberItem = document.querySelector('.adv__numbers');
-    const centerScroll = centerPosition + scrollPosition;
-    const numberPosition = numberItem.offsetTop + (numberItem.offsetHeight * 0.75);
-    if(centerScroll >= numberPosition) {
+    const numberPosition = numberItem.offsetTop - window.innerHeight;
+    if(scrollPosition >= numberPosition) {
         if(nubmerConst === 0) {
             numbers();
         }
