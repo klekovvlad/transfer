@@ -86,6 +86,87 @@ const main = document.querySelector('.main');
 
 mobileButton.addEventListener('click', () => {
     mobileMenu.classList.toggle('mobile__menu-active');
+    mobileButton.classList.toggle('header__buttons-mobile-active');
     header.classList.toggle('header-fixed');
     main.classList.toggle('main-fixed');
-})
+});
+
+//Анимации
+const mobileToolbar = document.querySelector('.mobile__toolbar');
+const animationLeft = document.querySelectorAll('.animation-left');
+
+mainAnimation();
+function mainAnimation() {
+    animationLeft[0].classList.add('animation');
+    animationLeft[1].classList.add('animation');
+    animationLeft[2].classList.add('animation');
+};
+
+function numbers() {
+    const numberAdvanced = document.querySelectorAll('.adv__numbers-item');
+    const numberPeople = numberAdvanced[0].querySelector('.number');
+    const numberCar = numberAdvanced[1].querySelector('.number');
+    const numberScore = numberAdvanced[2].querySelector('.number');
+    let x = 0;
+    let y = 0;
+    let j = 0;
+    setInterval(numberPeopleUpdate, 3);
+    setInterval(numberCarUpdate, 120);
+    setInterval(numberScoreUpdate, 500);
+    function numberPeopleUpdate() {
+        if(x <= 1000) {
+            numberPeople.innerHTML = x + '+';
+            x++;
+        }
+    }
+    function numberCarUpdate() {
+        if(y <= 35) {
+            numberCar.innerHTML = y + '+';
+            y++;
+        }
+    }
+    function numberScoreUpdate() {
+        if(j <= 5) {
+            numberScore.innerHTML = j + '+';
+            j++;
+        }
+    }
+    nubmerConst = 1;
+}
+
+const work = document.querySelector('.work');
+const workItem = document.querySelectorAll('.work__item');
+let nubmerConst = 0;
+
+window.addEventListener('scroll', () => {
+    const faq = document.querySelector('.faq');
+    faqPosition = faq.offsetTop;
+    centerPosition = window.innerHeight * 0.5;
+    scrollPosition = window.scrollY;
+    if(scrollPosition > centerPosition && scrollPosition < (faqPosition - centerPosition)) {
+        mobileToolbar.classList.add('mobile__toolbar-active');
+    }else{
+        mobileToolbar.classList.remove('mobile__toolbar-active');
+    };
+    workItem.forEach(el => {
+        const header = el.querySelector('h5');
+        const text = el.querySelector('.text');
+        const line = el.querySelector('.line');
+        const workStart = work.offsetTop - (centerPosition / 2);
+        if(scrollPosition >= workStart) {
+            header.classList.add('white-color');
+            text.classList.add('text-white');
+            if(line) {
+                line.classList.add('line-white');
+            }
+        }
+    });
+    const numberItem = document.querySelector('.adv__numbers');
+    const centerScroll = centerPosition + scrollPosition;
+    const numberPosition = numberItem.offsetTop + (numberItem.offsetHeight * 0.75);
+    if(centerScroll >= numberPosition) {
+        if(nubmerConst === 0) {
+            numbers();
+        }
+    }
+});

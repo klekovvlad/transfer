@@ -94,6 +94,12 @@
             }
         }
     }
+    .animation-left:nth-child(2) {
+        transition-delay: .2s;
+    }
+    .animation-left:nth-child(3) {
+        transition-delay: .4s;
+    }
 }
 
 @media (max-width: 1400px) {
