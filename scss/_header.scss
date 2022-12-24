@@ -125,12 +125,20 @@
                     border-radius: 2px;
                     background: #fff;
                     position: absolute;
+                    left: 0;
                     transition: top .4s .4s ease-in-out, bottom .4s .4s ease-in-out, transform .4s ease-in-out;
                     &:first-child {
-                        top: 10px;
+                        @include centerY;
+                        top: calc(50% - 10px);
+                    }
+                    &:nth-child(2) {
+                        @include centerY;
+                        opacity: 1;
+                        transition: .4s all ease-in-out;
                     }
                     &:last-child {
-                        bottom: 10px;
+                        @include centerY;
+                        top: calc(50% + 10px);
                     }
                 }
                 &-active {
@@ -140,9 +148,12 @@
                             top: 19px;
                             transform: rotate(45deg);
                         }
+                        &:nth-child(2) {
+                            opacity: 0;
+                        }
                         &:last-child {
                             transform: rotate(-45deg);
-                            bottom: 19px;
+                            top: 19px;
                         }
                     }
                 }
@@ -164,7 +175,7 @@
         bottom: 0;
         z-index: 100;
         background: #fff;
-        transform: translateY(-150%);
+        transform: translateX(100%);
         transition: all .4s ease-in-out;
     }
     .mobile {
@@ -238,6 +249,6 @@
         }
     }
     .mobile__menu-active {
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }

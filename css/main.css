@@ -267,16 +267,31 @@ h3 {
     border-radius: 2px;
     background: #fff;
     position: absolute;
+    left: 0;
     -webkit-transition: top 0.4s 0.4s ease-in-out, bottom 0.4s 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
     transition: top 0.4s 0.4s ease-in-out, bottom 0.4s 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
     transition: top 0.4s 0.4s ease-in-out, bottom 0.4s 0.4s ease-in-out, transform 0.4s ease-in-out;
     transition: top 0.4s 0.4s ease-in-out, bottom 0.4s 0.4s ease-in-out, transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
   }
   .header__buttons-mobile span:first-child {
-    top: 10px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    top: 50%;
+    top: calc(50% - 10px);
+  }
+  .header__buttons-mobile span:nth-child(2) {
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    top: 50%;
+    opacity: 1;
+    -webkit-transition: 0.4s all ease-in-out;
+    transition: 0.4s all ease-in-out;
   }
   .header__buttons-mobile span:last-child {
-    bottom: 10px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    top: 50%;
+    top: calc(50% + 10px);
   }
   .header__buttons-mobile-active span {
     -webkit-transition: top 0.4s ease-in-out, bottom 0.4s ease-in-out, -webkit-transform 0.4s 0.4s ease-in-out;
@@ -289,10 +304,13 @@ h3 {
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
   }
+  .header__buttons-mobile-active span:nth-child(2) {
+    opacity: 0;
+  }
   .header__buttons-mobile-active span:last-child {
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
-    bottom: 19px;
+    top: 19px;
   }
   .header-fixed {
     position: fixed;
@@ -309,8 +327,8 @@ h3 {
     bottom: 0;
     z-index: 100;
     background: #fff;
-    -webkit-transform: translateY(-150%);
-            transform: translateY(-150%);
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
   }
@@ -404,8 +422,8 @@ h3 {
     opacity: 1;
   }
   .mobile__menu-active {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 }
 .main {
