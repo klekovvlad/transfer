@@ -69,6 +69,88 @@ h3 {
     filter: invert(1);
 }
 
+.black {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: .4s all ease-in-out;
+    border: none;
+    cursor: pointer;
+    &:before {
+        content: '';
+        position: absolute;
+        @include centerY;
+        left: 0;
+        background: #fff;
+        width: 100%;
+        height: 50%;
+        transform: scaleY(0);
+        transform-origin: top;
+        z-index: -1;
+        transition: .4s all ease-in-out;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fff;
+        width: 100%;
+        height: 50%;
+        transform: scaleY(0);
+        transform-origin: bottom;
+        z-index: -1;
+        transition: .4s all ease-in-out;
+    }
+    &:hover {
+        color: #000 !important;
+        &:before, &::after {
+            transform: scaleY(1);
+        }
+    }
+}
+
+.white {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: .4s all ease-in-out;
+    border: none;
+    cursor: pointer;
+    &:before {
+        content: '';
+        position: absolute;
+        @include centerY;
+        left: 0;
+        background: #000;
+        width: 100%;
+        height: 50%;
+        transform: scaleY(0);
+        transform-origin: top;
+        z-index: -1;
+        transition: .4s all ease-in-out;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #000;
+        width: 100%;
+        height: 50%;
+        transform: scaleY(0);
+        transform-origin: bottom;
+        z-index: -1;
+        transition: .4s all ease-in-out;
+    }
+    &:hover {
+        color: #fff !important;
+        &:before, &::after {
+            transform: scaleY(1);
+        }
+    }
+}
+
 @media (max-width: 1399px) {
     .container {
         max-width: 100%;

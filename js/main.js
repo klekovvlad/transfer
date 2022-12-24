@@ -169,3 +169,44 @@ window.addEventListener('scroll', () => {
         }
     }
 });
+
+//Поп-ап
+const popupItems = document.querySelectorAll('.popup__form-item');
+const popupInput = document.querySelectorAll('.popup__form-item > input');
+const popupLabel = document.querySelectorAll('.popup__form-item > label');
+const popupTextArea = document.querySelector('.popup__form-item > textarea')
+popupItems.forEach(function(el, index) {
+    if(index < 5) {
+        popupInput[index].addEventListener('focus', () => {
+            popupLabel[index].classList.add('label-active');
+        });
+        popupInput[index].addEventListener('blur', () => {
+            if(popupInput[index].value === '') {
+                popupLabel[index].classList.remove('label-active');
+            }
+        });
+    };
+    if(index === 6) {
+        popupTextArea.addEventListener('focus', () => {
+            popupLabel[5].classList.add('label-active');
+        });
+        popupTextArea.addEventListener('blur', () => {
+            if(popupTextArea.value === '') {
+                popupLabel[5].classList.remove('label-active');
+            }
+        });
+    }
+});
+
+const popupOpen = document.querySelectorAll('.popup__open');
+const popupClose = document.querySelector('.popup__close');
+const popup = document.querySelector('.popup');
+
+popupOpen.forEach(el => {
+    el.addEventListener('click', () => {
+        popup.classList.add('popup-show');
+    });
+});
+popupClose.addEventListener('click', () => {
+    popup.classList.remove('popup-show');
+});
